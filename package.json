@@ -8,10 +8,10 @@
     "start:prod": "node index.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
-    "seed": "node scripts/seedDB.js",
+    "seed": "node seedDB.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "npm run build"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "gh-pages": "^2.2.0",
+    "concurrently": "^5.1.0",
     "nodemon": "^2.0.2"
   }
 }
