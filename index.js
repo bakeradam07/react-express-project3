@@ -5,8 +5,8 @@ const path = require('path');
 
 const app = express();
 
-
-app.use(express.static(path.join(__dirname, 'client/build')));
+if (process.env.NODE_ENV === "production"){
+app.use(express.static(path.join(__dirname, 'client/build')))};
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -26,7 +26,7 @@ app.get('/api/getUsers', (req,res) => {
 // Add routes, both API and view
 app.use(routes);
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/project3-react");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://user1:password1@ds035816.mlab.com:35816/heroku_fkjpdqkd");
 
 app.get('*', (req,res) =>{
     res.sendFile(path.join(__dirname+'/client/build/index.html'));
