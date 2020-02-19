@@ -10,11 +10,11 @@ class Home extends Component {
     <div className="App">
       <h1>Project Home</h1>
 
-      <Link to={'./users'}>
+      {/* <Link to={'./users'}>
         <button variant="raised">
             Users
         </button>
-      </Link>
+      </Link> */}
 
       <Link to={'./movies'}>
         <button variant="raised">
